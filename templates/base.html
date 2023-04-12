@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <link rel="stylesheet" type="text/css" href='/static/index.css'>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='signup.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}">
+        <link
+          rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous"
+        />
+        <link
+          rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/swiper.min.css">
+        <link rel="stylesheet" type="text/css" href="css/animate.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+        <title>Blood Link</title>
+    </head>
+    <body>
+        <!-- Navigation Bar Start -->
+        <section id="Navigation">
+            <nav class="navbar navbar-expand-lg navbar-light danger-color bg-light">
+                <img src="/static/logo.png" width="2.5%"> </img>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link selected" onclick= "window.location.href = 'home';" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="About-us.html">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="requests.html">Donations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="who-we-are.html">Who We Are ?</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact-us.html">Contact Us</a>
+                        </li>
+                    </ul>
+                    {% if 'loggedin' in session %}
+                    <button class="btn login" onclick= "window.location.href = 'logout';">Logout</button>
+                    {% else %}
+                    <button class="btn signup" onclick= "window.location.href = 'signup';">Sign Up</button>
+                    <button class="btn login" onclick= "window.location.href = 'login';">Login</button>
+                    {% endif %}
+                </div>
+            </nav>
+        </section>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        {% if category == 'error' %}
+        <div class="alert alert-danger alter-dismissable fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% else %}
+        <div class="alert alert-success alter-dismissable fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        {% block content %}
+        {% endblock %}
+
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+          crossorigin="anonymous"
+        ></script>
+        <script
+          src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+          crossorigin="anonymous"
+        ></script>
+        <!-- Footer Start -->
+        <section id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="foot-info">
+                            <p>This is Footer</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="menu">
+                            <a href="index.html">
+                                <li>Home</li>
+                            </a>
+                            <a href="About-us.html">
+                                <li>About Us</li>
+                            </a>
+                            <a href="requests.html">
+                                <li>Donations</li>
+                            </a>
+                            <a href="who-we-are.html">
+                                <li>Who We Are?</li>
+                            </a>
+                            <a href="contact-us.html">
+                                <li>Contact Us</li>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2023 Copyright:
+            <a href="index.html"> Blood Link</a> All Rights Reserved
+        </div>
+        <!-- Copyright -->
+        <!-- Footer End -->
+    </body>
+</html>

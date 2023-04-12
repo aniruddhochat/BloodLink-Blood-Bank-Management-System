@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content%}
+<!-- Header Start -->
+<div class="card card-image img-fluid"
+    style="background-image: url('/static/homepage.jpg'); background-size: cover;">
+    <div class="text-red text-center rgba-stylish-strong py-5 px-4">
+        <div class="py-5">
+            <!-- Content -->
+            <h4 class="card-title h4 my-4 py-2">Give Blood, Give Life !!</h4>
+            <h1 class="mb-4 pb-2 px-md-5 mx-md-5">Your blood can bring life back into someone's world<br>Join Blood Link and give the gift of life.</h1>
+            <a class="btn btn-danger" href="signup">Join Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+<!-- Sub-Header Start -->
+<div class="container-fluid" id="container">
+    <div class="card text-center" id="prompt">
+        <div class="card-body">
+            <h4 class="card-title"><strong>One Blood Donation Can Save Three Lives</strong></h4>
+            <p class="card-text">With Blood Link, you have the power to save up to three lives with just one blood donation. Join us and make a difference today.</p>
+            <a href="request.html" class="btn btn-danger">Request Appointment</a>
+        </div>
+    </div>
+</div>
+<!-- Sub-Header Start -->
+{% endblock %}

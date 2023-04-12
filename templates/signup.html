@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block title %}SignUp{% endblock %}
+{% block content%}
+<!-- Sign Up Start-->
+<section id="sign-up">
+    <div id="signupDiv" class="container">
+        <form method="POST">
+            <h3 align="center">Sign Up</h3>
+            <h5 align="center">Enter your details</h5>
+            <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              required
+            />
+            </div>
+            <div class="form-group">
+                <label  for="phoneNumber">Phone Number </label>
+                <input
+                  type="int"
+                  class="form-control"
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  placeholder="Enter your phone Number"
+                  required
+                />
+            </div>
+            <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              placeholder="Enter your email address"
+              required
+            />
+            </div>
+            <div class="form-group">
+            <label for="bloodType">Blood Type</label>
+            <select name="bloodType" id="bloodType" required>
+                <option value="Blood Type" disabled>Blood Type</option>
+                <option value=""></option>
+                <option value="Apos">A+</option>
+                <option value="Aneg">A-</option>
+                <option value="Bpos">B+</option>
+                <option value="Bneg">B-</option>
+                <option value="Opos">O+</option>
+                <option value="Oneg">O-</option>
+                <option value="ABpos">AB+</option>
+                <option value="ABneg">AB-</option>
+            </select>
+            </div>
+            <div class="form-group">
+            <label for="dateOfBirth">Date Of Birth</label>
+            <input
+              type="date"
+              class="form-control"
+              id="dateOfBirth"
+              name="dateOfBirth"
+              placeholder="Enter your date of birth"
+              required
+            />
+            </div>
+            <div class="form-group">
+            <label for="gender">Gender</label>
+            <select name="gender" id="gender" required>
+               <option value="Gender" disabled>Gender</option>
+               <option value=""></option>
+               <option value="male">Male</option>
+               <option value="female">Female</option>
+               <option value="others">Do not wish to disclose</option>
+            </select>
+            </div>
+            <div class="form-group">
+            <label for="userType">User Type</label>
+            <select name="userType" id="userType" required>
+               <option value="userType" disabled>User Type</option>
+               <option value=""></option>
+               <option value="Donor">Donor</option>
+               <option value="Recipient">Recipient</option>
+               <option value="Employee">Employee</option>
+            </select>
+            </div>
+            <div class="form-group">
+            <label for="password1">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password1"
+              name="password1"
+              placeholder="Enter password"
+              required
+            />
+            </div>
+            <div class="form-group">
+            <label for="password2">Confirm Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password2"
+              name="password2"
+              placeholder="Confirm password"
+              required
+            />
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</section>
+<!-- Sign Up End -->
+{% endblock %}
