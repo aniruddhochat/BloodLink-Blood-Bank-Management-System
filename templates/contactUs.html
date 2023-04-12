@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}SignUp{% endblock %}
+{% block content%}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='contactUs.css') }}">
+<div class="contactUs">
+    <div class="title">
+        <h2>Get in Touch</h2>
+    </div>
+    <div class="box">
+        <div class="contact form">
+            <h3>Send a Message</h3>
+            <form>
+                <div class="formBox">
+                    <div class="row50">
+                        <div class="inputBox">
+                            <span>First Name</span>
+                            <input tpye="text" placeholder="John">
+                        </div>
+                        <div class="inputBox">
+                            <span>Last Name</span>
+                            <input tpye="text" placeholder="Doe">
+                        </div>
+                    </div>
+                    <div class="row50">
+                        <div class="inputBox">
+                            <span>Email Address</span>
+                            <input tpye="text" placeholder="johndoe@email.com">
+                        </div>
+                        <div class="inputBox">
+                            <span>Mobile</span>
+                            <input tpye="text" placeholder="+1 812 654 6754">
+                        </div>
+                    </div>
+                    <div class="row100">
+                        <div class="inputBox">
+                            <span>Message</span>
+                            <textarea placeholder="Write your message here....."></textarea>
+                        </div>
+                    </div>
+                    <div class="row100">
+                        <div class="inputBox">
+                            <input type="submit" value="Send">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="contact info">
+            <h3>Contact Info</h3>
+            <div class="infoBox">
+                <div>
+                    <span><ion-icon name="compass"></ion-icon></span>
+                    <p>IUB Bloomington, IN 47408<br>UNITED STATES</p>
+                </div>
+                <div>
+                    <span><ion-icon name="mail-unread"></ion-icon></span>
+                    <a href="mailto:bloodlink@gmail.com">bloodlink@gmail.com</a>
+                </div>
+                <div>
+                    <span><ion-icon name="call"></ion-icon></span>
+                    <a href="tel:+1 812 654 6754">+1 812 654 6754</a>
+                </div>
+
+                <ul class="sci">
+                    <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                    <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                    <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></ion-icon></a></li>
+                    <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></ion-icon></a></li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="contact map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3093.2848391010752!2d-86.52558758893518!3d39.16824487154932!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1681262211544!5m2!1sen!2sus"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</div>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+{% endblock %}

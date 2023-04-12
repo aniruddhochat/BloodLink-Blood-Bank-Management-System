@@ -97,5 +97,9 @@ def logout():
     flash('Logged out successfully!',category='success')
     return render_template('login.html')
 
+@app.route('/contactUs',methods=['GET', 'POST'])
+def contactUs():
+    return render_template('contactUs.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
