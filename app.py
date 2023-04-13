@@ -1,5 +1,6 @@
 from flask import Flask,render_template,request,flash,session
-from flask_mysqldb import MySQL
+#from flask_mysql import MySQL
+from flaskext.mysql import MySQL
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__,template_folder='templates')
@@ -100,6 +101,10 @@ def logout():
 @app.route('/contactUs',methods=['GET', 'POST'])
 def contactUs():
     return render_template('contactUs.html')
+
+@app.route('/aboutUs',methods=['GET', 'POST'])
+def aboutUs():
+    return render_template('aboutUs.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
