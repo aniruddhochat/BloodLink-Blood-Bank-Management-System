@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}aboutUs{% endblock %}
+{% block content%}
+
+  <head>
+    <title>About Us - Blood Bank Management System</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='aboutUs.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+
+  <body>
+  <div class="aboutUs">
+    <div class="container">
+      <div class="content">
+        <h1>About Us</h1>
+        <p>
+          Welcome to the Blood Link: Blood Bank Management System! We are a team of dedicated professionals who are passionate about helping those in need. Our mission is to ensure that every patient who requires a blood transfusion receives safe, timely, and appropriate care.
+        </p>
+        <p>
+          Our system is designed to make the blood donation process as easy and convenient as possible for both donors and recipients. With our user-friendly interface, you can easily find information about blood availability, schedule appointments, and track your donation.
+        </p>
+        <p>
+          Our team is made up of experienced medical professionals, software developers, and customer service specialists who are committed to providing the best possible service to our users. We are always looking for ways to improve our system and welcome your feedback and suggestions.
+        </p>
+        <h2>Contact Us</h2>
+        <p>
+          If you have any questions or concerns, please don't hesitate to contact us. You can reach us by phone, email, or through our online support portal.
+        </p>
+        <p>
+          <a href="#" class="btn">Get in touch</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  </body>
+
+{% endblock %}

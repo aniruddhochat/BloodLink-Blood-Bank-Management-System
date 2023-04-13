@@ -1,5 +1,6 @@
 from flask import Flask,render_template,request,flash,session
-from flask_mysqldb import MySQL
+#from flask_mysql import MySQL
+from flaskext.mysql import MySQL
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__,template_folder='templates')
@@ -105,6 +106,7 @@ def logout():
 def contactUs():
     return render_template('contactUs.html')
 
+<<<<<<< HEAD
 @app.route('/adminBase',methods=['GET', 'POST'])
 def adminBase():
     return render_template('adminBase.html')
@@ -116,6 +118,11 @@ def adminDonor():
     cursor.execute('SELECT * FROM Donor')
     donorData = cursor.fetchall()
     return render_template('adminDonor.html',donorData=donorData)
+=======
+@app.route('/aboutUs',methods=['GET', 'POST'])
+def aboutUs():
+    return render_template('aboutUs.html')
+>>>>>>> fa2fa4654ecb5ecd408e748a67b6e4de0bf85794
 
 if __name__ == '__main__':
     app.run(debug=True)
