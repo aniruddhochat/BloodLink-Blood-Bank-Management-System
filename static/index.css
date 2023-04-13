@@ -5,12 +5,13 @@
 @import url("https://fonts.googleapis.com/css2?family=NTR&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
 
-header {
+header,subHeader {
   overflow: hidden;
   height: 100%;
   width: 100%;
   background-size: cover;
   position: relative;
+  width: 100%;
   background-attachment: fixed;
 }
 .container {
@@ -37,4 +38,14 @@ header {
 
 #logo > a > img {
   width: 70%;
+}
+
+#footer {
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #FF0018;
+   color: black;
+   text-align: center;
+   height:50px;
 }

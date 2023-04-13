@@ -53,15 +53,15 @@ def signUp():
 
             cursor.execute('SELECT * FROM BloodLinkUsers WHERE email = %s AND password = %s', (email, check_password_hash(password1,password1)))
             account = cursor.fetchone()
-            print(account)
+            #print(account)
             if userType == 'Donor':
                 cursor.execute('''INSERT INTO DONOR (DonorId,Name,Contact,Email,BloodType,DOB,Gender,Address)
                                 VALUES(%s,%s,%s,%s,%s,%s,%s,%s) '''
                                ,(account[0],name,phoneNumber,email,bloodType,dateOfBirth,gender,''))
-            else:
-                cursor.execute('''INSERT INTO RECIPIENT (RecipientId,Name,Contact,Email,BloodType,DOB,Gender,Address)
+            elif userType == 'Recipient':
+                cursor.execute('''INSERT INTO RECIPIENT (RecipientId,Name,Contact,Email,RequiredBloodType,DOB,Gender,Address)
                                             VALUES(%s,%s,%s,%s,%s,%s,%s,%s) '''
-                               , (account[0],name, phoneNumber, email, bloodType, dateOfBirth, gender, ''))
+                               , (account[0],name, phoneNumber, email,bloodType,dateOfBirth, gender, ''))
             mysql.connection.commit()
             cursor.close()
 
@@ -83,7 +83,10 @@ def login():
             session['loggedin'] = True
             session['id'] = account[0]
             session['email'] = account[1]
+            session['userType'] = account[3]
             flash('Logged in successfully!',category='success')
+            if account[3] == 'Employee':
+                return  render_template('adminBase.html')
             return  render_template('index.html')
         else:
             flash('Incorrect username/password!',category='error')
@@ -94,12 +97,25 @@ def logout():
     session.pop('loggedin', None)
     session.pop('id', None)
     session.pop('username', None)
+    session.pop('userType',None)
     flash('Logged out successfully!',category='success')
-    return render_template('login.html')
+    return render_template('index.html')
 
 @app.route('/contactUs',methods=['GET', 'POST'])
 def contactUs():
     return render_template('contactUs.html')
+
+@app.route('/adminBase',methods=['GET', 'POST'])
+def adminBase():
+    return render_template('adminBase.html')
+
+@app.route('/adminDonor',methods=['GET', 'POST'])
+def adminDonor():
+    cursor = mysql.connection.cursor()
+
+    cursor.execute('SELECT * FROM Donor')
+    donorData = cursor.fetchall()
+    return render_template('adminDonor.html',donorData=donorData)
 
 if __name__ == '__main__':
     app.run(debug=True)
