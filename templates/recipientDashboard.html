@@ -1,0 +1,43 @@
+{% extends 'recipientBase.html' %}
+{% block content %}
+
+{% macro render_field(field) %}
+  {{ field.label }}
+  {{ field(**kwargs)|safe }}
+  {% if field.errors %}
+    {% for error in field.errors %}
+      <span class="help-inline">{{ error }}</span>
+    {% endfor %}
+  {% endif %}
+{% endmacro %}
+<section id="edit">
+    <div class="container">
+        <h4 class="text-center" style="color: black">Edit Recipient Details</h4>
+        <form method="POST" action="">
+            <div class="form-group" style="color: black; text-align: left;">
+              {{ render_field(form.name, class_="form-control") }}
+            </div>
+            <div class="form-group" style="color: black; text-align: left;">
+              {{ render_field(form.contact, class_="form-control", id="editor") }}
+            </div>
+            <div class="form-group" style="color: black; text-align: left;">
+              {{ render_field(form.email, class_="form-control", id="editor") }}
+            </div>
+            <div class="form-group" style="color: black; text-align: left;">
+              {{ render_field(form.bloodType, class_="form-control", id="editor") }}
+            </div>
+            <div type="date" class="form-group" style="color: black; text-align: left;">
+              {{ render_field(form.dob, type="date",  class_="form-control", id="editor") }}
+            </div>
+            <div class="form-group" style="color: black; text-align: left;">
+              {{ render_field(form.gender, class_="form-control", id="editor") }}
+            </div>
+            <div class="form-group">
+              <div class="btn-group">
+                <input class="btn btn-primary" type="submit" value="Update">
+              </div>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock content %}

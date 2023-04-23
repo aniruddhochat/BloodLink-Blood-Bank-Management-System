@@ -1,0 +1,36 @@
+{% extends 'adminBase.html' %}
+{% block content %}
+<section id="adminAppointmentHistory">
+    <div class="container">
+        <donorTag>
+            <h4 class="text-center" style="color: black">Appointment History Details</h4><br>
+        </donorTag>
+        <table class="table table-light table-hover table-bordered table-striped">
+            <thead class="bg-info">
+                <tr>
+                    <th scope="col">User Type</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Blood Type</th>
+                    <th scope="col">Appointment Date</th>
+                    <th scope="col">Appointment Time</th>
+                    <th scope="col">Appointment Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in appointmentHistory %}
+                <tr>
+                    <td> {{row[0]}} </td>
+                    <td> {{row[1]}} </td>
+                    <td> {{row[2]}} </td>
+                    <td> {{row[3]}} </td>
+                    <td> {{row[4]}} </td>
+                    <td> {{row[5]}} </td>
+                    <td> {{row[6]}} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock content %}

@@ -1,0 +1,34 @@
+{% extends 'adminBase.html' %}
+{% block content %}
+<section id="adminAppointmentHistory">
+    <div class="container">
+        <donorTag>
+            <h4 class="text-center" style="color: black">Blood Stock Details</h4><br>
+        </donorTag>
+        <table class="table table-light table-hover table-bordered table-striped">
+            <thead class="bg-info">
+                <tr>
+                    <th scope="col">Blood Bank Name</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">State</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Blood Type</th>
+                    <th scope="col">Available Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in bloodStock %}
+                <tr>
+                    <td> {{row[1]}} </td>
+                    <td> {{row[2]}} </td>
+                    <td> {{row[3]}} </td>
+                    <td> {{row[4]}} </td>
+                    <td> {{row[5]}} </td>
+                    <td> {{row[6]}} </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock content %}

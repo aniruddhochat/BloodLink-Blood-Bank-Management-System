@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=NTR&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
 input,
 textarea,
 select {
@@ -33,7 +34,29 @@ select {
     font-weight: bold;
 }
 #sign-up {
-    background-image: url('/static/signupback.jpg');
+    background-image: url('/static/aboutus.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
+}
+#signupDiv {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0px 2px 5px #888888;
+    background-color: #f5f5f5;
+}
+h3, h5 {
+    color: #dc3545;
+}
+.form-control:focus {
+    border-color: #dc3545;
+    box-shadow: none;
+}
+.btn-primary {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+.btn-primary:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
 }

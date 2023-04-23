@@ -1,11 +1,11 @@
 {% extends 'adminBase.html' %}
 {% block content %}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='adminDonor.css') }}">
-<section id="adminDonor">
+<section id="adminRecipient">
     <div class="container">
 
         <donorTag>
-            <h4 class="text-center" style="color: black">Donor Details</h4><br>
+            <h4 class="text-center" style="color: black">Recipient Details</h4><br>
         </donorTag>
         <table class="table table-light table-hover table-bordered table-striped">
             <thead class="bg-info">
@@ -13,14 +13,14 @@
                     <th scope="col">Name</th>
                     <th scope="col">Contact</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Blood Type</th>
+                    <th scope="col">Requested Blood Type</th>
                     <th scope="col">Date of Birth</th>
                     <th scope="col">Gender</th>
                     <th scope="col" class="EditDelBtn">Action</th>
                 </tr>
             </thead>
             <tbody>
-                {% for row in donorData %}
+                {% for row in recipientData %}
                 <tr>
                     <td> {{row[1]}} </td>
                     <td> {{row[2]}} </td>
@@ -29,8 +29,8 @@
                     <td> {{row[5]}} </td>
                     <td> {{row[6]}} </td>
                     <td class="EditDelBtn">
-                        <button class="btn btn-primary badge-pill" style="width: 80px;"><a  style="text-decoration: none;color: white;" href="editDonor/{{ row[0] }}">Edit</a> </button>
-                        <form action="{{url_for('deleteDonor',donorId= row[0])}}" method="post">
+                        <button class="btn btn-primary badge-pill" style="width: 80px;"><a  style="text-decoration: none;color: white;" href="editRecipient/{{ row[0] }}">Edit</a> </button>
+                        <form action="{{url_for('deleteRecipient',recipientId= row[0])}}" method="post">
                             <input type="hidden" name="_method" value="DELETE">
                             <input  type="submit" value="Delete" class="btn btn-danger badge-pill" style="width: 80px;"> <a  style="text-decoration: none;color: white;">
                         </form>

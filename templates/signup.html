@@ -1,6 +1,9 @@
 {% extends "base.html" %}
 {% block title %}SignUp{% endblock %}
 {% block content%}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous">
 <!-- Sign Up Start-->
 <section id="sign-up">
     <div id="signupDiv" class="container">
@@ -45,14 +48,14 @@
             <select name="bloodType" id="bloodType" required>
                 <option value="Blood Type" disabled>Blood Type</option>
                 <option value=""></option>
-                <option value="Apos">A+</option>
-                <option value="Aneg">A-</option>
-                <option value="Bpos">B+</option>
-                <option value="Bneg">B-</option>
-                <option value="Opos">O+</option>
-                <option value="Oneg">O-</option>
-                <option value="ABpos">AB+</option>
-                <option value="ABneg">AB-</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
             </select>
             </div>
             <div class="form-group">
@@ -114,4 +117,5 @@
     </div>
 </section>
 <!-- Sign Up End -->
+
 {% endblock %}

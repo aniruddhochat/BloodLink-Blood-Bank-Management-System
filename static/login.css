@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=NTR&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Raleway&display=swap");
+
 input,
 textarea,
 select {
@@ -36,4 +37,48 @@ select {
     background-image: url('/static/signupback.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: #f2f2f2;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    height: calc(100vh - 150px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+#loginDiv {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="email"], input[type="password"] {
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+button[type="submit"] {
+    border-radius: 5px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+    button[type="submit"]:hover {
+        background-color: #0069d9;
+        cursor: pointer;
+    }

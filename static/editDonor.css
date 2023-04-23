@@ -1,0 +1,35 @@
+.form-control {
+  color: black;
+  text-align: left;
+}
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-update {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-close {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    color: #999;
+}
+
+.btn-close:hover {
+    color: #555;
+}
+
+.fa-times {
+    font-size: 20px;
+}
