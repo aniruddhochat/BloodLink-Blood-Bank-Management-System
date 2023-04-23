@@ -68,17 +68,3 @@ input[type="email"], input[type="password"] {
     border: 1px solid #ccc;
     margin-bottom: 20px;
 }
-
-button[type="submit"] {
-    border-radius: 5px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    border: none;
-    color: #fff;
-    transition: all 0.3s ease-in-out;
-}
-
-    button[type="submit"]:hover {
-        background-color: #0069d9;
-        cursor: pointer;
-    }
