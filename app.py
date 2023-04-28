@@ -15,12 +15,19 @@ app.config['SECRET_KEY'] = 'secret-key-goes-here'
 #
 # mysql = MySQL(app)
 
+# def connect_db():
+#     return pymysql.connect(
+#         host='localhost',
+#         user='root',
+#         password = "Silentkiller@7",
+#         db='bbms',
+#         )
 def connect_db():
     return pymysql.connect(
-        host='localhost',
-        user='root',
-        password = "Silentkiller@7",
-        db='bbms',
+        host='caswapan.mysql.pythonanywhere-services.com',
+        user='caswapan',
+        password = "BloodLink@123",
+        db='BBMS',
         )
 
 @app.route('/')
@@ -259,6 +266,14 @@ def editRecipient(recipientId):
 def deleteDonor(donorId):
     conn = connect_db()
     cur = conn.cursor()
+    cur.execute("DELETE FROM bloodlinkusers WHERE userId = %s", [donorId])
+    conn.commit()
+
+    cur.execute("DELETE FROM donorAppointment WHERE donorId = %s", [donorId])
+    conn.commit()
+
+    cur.execute("DELETE FROM bloodSample WHERE donorId = %s", [donorId])
+    conn.commit()
     cur.execute("DELETE FROM Donor WHERE donorId = %s", [donorId])
     conn.commit()
     cur.close()
@@ -271,6 +286,15 @@ def deleteDonor(donorId):
 def deleteRecipient(recipientId):
     conn = connect_db()
     cur = conn.cursor()
+
+    cur.execute("DELETE FROM bloodlinkusers WHERE userId = %s", [recipientId])
+    conn.commit()
+
+    cur.execute("DELETE FROM recipientAppointment WHERE donorId = %s", [recipientId])
+    conn.commit()
+
+    cur.execute("DELETE FROM requestedBloodSample WHERE donorId = %s", [recipientId])
+    conn.commit()
     cur.execute("DELETE FROM Recipient WHERE recipientId = %s", [recipientId])
     conn.commit()
     cur.close()
@@ -485,8 +509,8 @@ def editRecipientAppointment(appointmentId,recipientId,bloodBankId):
             cur = conn.cursor()
 
             cur.execute(
-                "UPDATE RequestedBloodSample SET appointmentId=%s, recipientId=%s, bloodBankId=%s, bloodType=%s, Quantity=%s",
-                (appointmentId, recipientId, bloodBankId, bloodType,Quantity))
+                "UPDATE RequestedBloodSample SET bloodType=%s, Quantity=%s where appointmentId=%s and recipientId=%s and bloodBankId=%s",
+                (bloodType,Quantity,appointmentId, recipientId, bloodBankId))
             conn.commit()
             cur.close()
             conn.close()
@@ -536,10 +560,10 @@ def acceptAppointment(appointmentId,id,bloodBankId):
             requestedBloodSample = cur.fetchone()
 
             cur.execute(
-                "select * from ViewInventory where bloodBankId=%s and bloodType=%s",(requestedBloodSample[4],requestedBloodSample[5]))
+                "select * from ViewInventory where bloodBankId=%s and bloodType=%s",(requestedBloodSample[3],requestedBloodSample[4]))
             inventory = cur.fetchone()
-
-            if inventory and int(inventory.AvailableQuantity) > 0:
+            print(inventory)
+            if inventory and int(inventory[6]) > 0:
 
                 cur.execute("UPDATE recipientAppointment SET appointmentStatus =%s where appointmentId=%s",
                             [1, appointmentId])
@@ -715,7 +739,7 @@ def recipientDashboard():
         cur = conn.cursor()
 
         cur.execute("UPDATE RECIPIENT SET NAME=%s,CONTACT=%s,EMAIL=%s,RequiredBloodType=%s,DOB=%s,GENDER=%s where recipientId = %s"
-                    , (name,contact,email,bloodType,dateOfBirth,gender,recipientId))
+                    , (name,contact,email,bloodType,dateOfBirth,gender,session['id']))
         conn.commit()
         cur.close()
         conn.close()
