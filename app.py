@@ -24,9 +24,9 @@ app.config['SECRET_KEY'] = 'secret-key-goes-here'
 #         )
 def connect_db():
     return pymysql.connect(
-        host='caswapan.mysql.pythonanywhere-services.com',
-        user='caswapan',
-        password = "BloodLink@123",
+        host='bbms.mysql.pythonanywhere-services.com',
+        user='bbms',
+        password = "bloodlink@123",
         db='BBMS',
         )
 
