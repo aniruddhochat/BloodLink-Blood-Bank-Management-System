@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 # Blood Link : Blood Bank Management System
-=======
-# BloodLink-Blood-Bank-Management-System
 Application URL: http://bbms.pythonanywhere.com/  
 
 ## Project Summary: 
